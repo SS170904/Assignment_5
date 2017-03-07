@@ -1,0 +1,95 @@
+
+
+<div class="container">
+
+    <h4>Sign Up</h4>
+
+    <form class="form-horizontal" name='signUpForm' novalidate>
+      <div class="form-group">
+          <label class="control-label col-sm-2"> First Name: </label>
+           <div class="col-sm-10">
+              <input class="form-control" type="text" name="firstname" value="S" placeholder="Plesae specify First Name"
+                ng-model="signUpCtrl.user.firstname"
+
+                ng-maxlength="20">
+                <!--span
+                  ng-if="(signUpForm.firstname.$error.required) && signUpForm.firstname.$touched">
+                  Please provide the First Name
+                </span>
+                <span ng-if="signUpForm.firstname.$error.maxlength && signUpForm.firstname.$touched">
+                  First Name must not be longer than 20 characters
+                </span-->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2"> Last Name: </label>
+             <div class="col-sm-10">
+                <input class="form-control" type="text" name="lastname" value="S" placeholder="Plesae specify Last Name"
+                  ng-model="signUpCtrl.user.lastname"
+                  required
+                  ng-maxlength="20">
+                  <span
+                    ng-if="(signUpForm.lastname.$error.required) && signUpForm.lastname.$touched">
+                    Please provide the Last Name
+                  </span>
+                  <span ng-if="signUpForm.lastname.$error.maxlength && signUpForm.lastname.$touched">
+                    Last Name must not be longer than 20 characters
+                  </span>
+              </div>
+          </div>
+
+      <div class="form-group">
+          <label class="control-label col-sm-2">Email: </label>
+           <div class="col-sm-10">
+              <input class="form-control" type="email" name="email" value="S@s.com" placeholder="Email"
+                required
+                ng-model="signUpCtrl.user.email"
+                >
+                <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+                  Must be a valid email address: handle@domain format
+                </span>
+              </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-2"> Phone No.: </label>
+             <div class="col-sm-10">
+                <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####"
+                  ng-model="signUpCtrl.user.phone"
+                  required
+                  pattern="(\d{3})-(\d{3})-(\d{4})">
+                  <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+                    Phone must be in the format ###-###-####.
+                  </span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="control-label col-sm-2"> Favourite Dish: </label>
+               <div class="col-sm-10">
+                  <input class="form-control" type="text" name="favDish" placeholder="Please enter menu number"
+                    required
+                    ng-model="signUpCtrl.user.favDish"
+                    ng-change="signUpCtrl.ValidateFavDish()"
+              </div>
+              <span
+                ng-if="(signUpForm.favDish.$error.required) && signUpForm.favDish.$touched">
+                Please provide the favourite Menu Item
+              </span>
+              <span class="text-error">{{signUpCtrl.notAvlDishMsg}}</span>
+            </div>
+            <br/><br/>
+
+      <label class="control-label col-sm-2"> </label>
+         <div class="col-sm-10">
+            <button class="btn-success"
+              ng-disabled="signUpForm.$invalid"
+              ng-click="signUpCtrl.submit()">Submit</button>
+
+              <div style="margin-top: 10px;">
+              </div>
+          </div>
+
+    </form>
+</div>

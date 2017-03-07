@@ -1,0 +1,43 @@
+
+<div class= "container">
+  <span ng-if="myInfoCtrl.UserNotRegistered">
+  <h3>  Not Signed Up Yet. <a ui-sref="public.signUp"> Sign up Now!  </a> </h3>
+  </span>
+</div>
+
+<div class= "container-fluid" ng-hide="myInfoCtrl.UserNotRegistered">
+  <h3>Welcome {{myInfoCtrl.User.name}}  ! </h3>
+  <br/>
+  <div class=" control-label row">
+   <div class=" control-label col-sm-2" >Name</div>
+   <div class="col-sm-2" >  {{myInfoCtrl.User.name}}</div>
+ </div>
+  <div class="row">
+   <div class=" control-label col-sm-2" >Email</div>
+   <div class="col-sm-2" >    {{myInfoCtrl.User.email}}</div>
+ </div>
+  <div class="row">
+   <div class=" control-label col-sm-2" >Phone No.</div>
+   <div class="col-sm-2" >  {{myInfoCtrl.User.phone}}</div>
+ </div>
+
+ <div class="row">
+  <div class=" control-label col-sm-2" >Favourite item</div>
+  <div class="col-sm-2" >  {{myInfoCtrl.User.favdish}}</div>
+</div>
+
+<div class="row">
+  <div class=" control-label col-sm-2" >&nbsp;</div>
+  <div class="col-sm-8" >  {{myInfoCtrl.User.menuItemName}} <br>  {{myInfoCtrl.User.menuItemDescription}}</div>
+</div>
+
+<div class="row">
+  <div class=" control-label col-sm-4" >
+    <div class="menu-item-photo">
+      <div>{{myInfoCtrl.User.menuItemName}}</div>
+      <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.BasePath}}/images/{{myInfoCtrl.User.menuItemShortName}}.jpg" alt="{{myInfoCtrl.User.menuItemName}}">
+  </div>
+</div>
+</div>
+
+</div>
